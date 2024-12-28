@@ -33,6 +33,7 @@ class InsertViewModel(private val mhs: MahasiswaRepository) : ViewModel(){
     }
 }
 
+// untuk merepresentasikan state UI pada proses input data Mahasiswa
 data class InsertUiState(
     val insertUiEvent: InsertUiEvent = InsertUiEvent()
 )
