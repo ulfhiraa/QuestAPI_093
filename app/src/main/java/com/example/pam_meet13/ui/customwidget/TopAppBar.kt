@@ -12,7 +12,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
-import java.lang.reflect.Modifier
+import androidx.compose.ui.Modifier
 
 // untuk membuat top app bar kustom dengan dukungan navigasi kembali dan aksi refresh.
 @OptIn(ExperimentalMaterial3Api::class)
@@ -30,7 +30,10 @@ fun CustomeTopAppBar(
         actions = {
             Icon(imageVector = Icons.Default.Refresh,
                 contentDescription = "",
-                modifier = Modifier.clickable { onRefresh() }
+                modifier = Modifier.clickable
+                {
+                    onRefresh()
+                }
             )
         },
         modifier = modifier,
