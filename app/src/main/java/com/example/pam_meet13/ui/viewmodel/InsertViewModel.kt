@@ -48,6 +48,7 @@ data class InsertUiEvent(
     val angkatan: String = ""
 )
 
+// untuk mengonversi InsertUiEvent menjadi Mahasiswa
 fun InsertUiEvent.toMhs(): Mahasiswa = Mahasiswa(
     nim = nim,
     nama = nama,
