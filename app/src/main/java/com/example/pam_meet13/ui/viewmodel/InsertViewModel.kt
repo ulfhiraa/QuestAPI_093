@@ -58,6 +58,7 @@ fun InsertUiEvent.toMhs(): Mahasiswa = Mahasiswa(
     angkatan = angkatan,
 )
 
+// fungsi ekstensi untuk mengonversi Mahasiswa menjadi InsertUiState
 fun Mahasiswa.toUiStateMhs(): InsertUiState = InsertUiState(
     insertUiEvent = toInsertUiEvent()
 )
