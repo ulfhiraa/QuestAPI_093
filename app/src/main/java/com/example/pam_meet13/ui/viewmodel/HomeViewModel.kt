@@ -21,6 +21,7 @@ sealed class HomeUiState {
     object Loading : HomeUiState()
 }
 
+// untuk mengelola state UI dan mengambil data Mahasiswa dari MahasiswaRepository
 class HomeViewModel (private val mhs: MahasiswaRepository): ViewModel(){
     var mhsUIState: HomeUiState by mutableStateOf(HomeUiState.Loading)
         private set
