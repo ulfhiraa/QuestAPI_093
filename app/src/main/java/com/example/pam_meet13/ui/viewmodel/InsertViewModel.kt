@@ -38,6 +38,7 @@ data class InsertUiState(
     val insertUiEvent: InsertUiEvent = InsertUiEvent()
 )
 
+// untuk merepresentasikan event input data Mahasiswa dari UI
 data class InsertUiEvent(
     val nim: String = "",
     val nama: String = "",
