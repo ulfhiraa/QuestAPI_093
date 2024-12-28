@@ -77,7 +77,7 @@ fun EntryMhsScreen(
     }
 }
 
-// untuk menampilkan form input data Mahasiswa dan tombol simpan
+// untuk menampilkan form input data Mahasiswa dan tombol simpan.
 @Composable
 fun EntryBody(
     insertUiState: InsertUiState,
