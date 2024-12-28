@@ -13,7 +13,7 @@ import kotlinx.coroutines.launch
 // termasuk data class InsertUiState dan InsertUiEvent
 // serta fungsi ekstensi untuk konversi data antara InsertUiEvent dan Mahasiswa.
 
-
+// untuk mengelola input data Mahasiswa melalui MahasiswaRepository.
 class InsertViewModel(private val mhs: MahasiswaRepository) : ViewModel(){
     var uiState by mutableStateOf(InsertUiState())
         private set
