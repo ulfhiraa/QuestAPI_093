@@ -30,8 +30,9 @@ import com.example.pam_meet13.ui.viewmodel.InsertViewModel
 import com.example.pam_meet13.ui.viewmodel.PenyediaViewModel
 import kotlinx.coroutines.launch
 
-//
+//untuk menyimpan data Mahasiswa yang dimasukkan oleh pengguna dan mengelola state UI
 
+// untuk mendefinisikan route dan titleRes untuk layar input data Mahasiswa.
 object DestinasiEntry : DestinasiNavigasi{
     override val route = "item_entry"
     override val titleRes = "Entry Mhs"
