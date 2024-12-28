@@ -14,7 +14,7 @@ import java.io.IOException
 // HomeViewModel untuk mengelola pengambilan data Mahasiswa
 // dan state UI menggunakan sealed class HomeUiState.
 
-
+// untuk merepresentasikan state aplikasi (Success, Error, Loading) dalam proses pengambilan data Mahasiswa.
 sealed class HomeUiState {
     data class Success(val Mahasiswa: List<Mahasiswa>): HomeUiState()
     object Error : HomeUiState()
