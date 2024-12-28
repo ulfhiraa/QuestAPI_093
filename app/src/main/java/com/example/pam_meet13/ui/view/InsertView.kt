@@ -38,6 +38,7 @@ object DestinasiEntry : DestinasiNavigasi{
     override val titleRes = "Entry Mhs"
 }
 
+// untuk menampilkan layar input data Mahasiswa dengan tombol simpan dan navigasi kembali
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun EntryMhsScreen(
