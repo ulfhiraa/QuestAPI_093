@@ -14,15 +14,14 @@ import kotlinx.coroutines.launch
 // serta fungsi ekstensi untuk konversi data antara InsertUiEvent dan Mahasiswa.
 
 // untuk mengelola input data Mahasiswa melalui MahasiswaRepository.
-class InsertViewModel(private val mhs: MahasiswaRepository) : ViewModel(){
+class InsertViewModel(private val mhs: MahasiswaRepository): ViewModel(){
     var uiState by mutableStateOf(InsertUiState())
         private set
-
-    fun updateInsertMhsState(insertUiEvent : InsertUiEvent) {
+    fun updateInsertMhsState(insertUiEvent: InsertUiEvent){
         uiState = InsertUiState(insertUiEvent = insertUiEvent)
     }
 
-    suspend fun insertMhs() {
+    suspend fun insertMhs(){
         viewModelScope.launch {
             try {
                 mhs.insertMahasiswa(uiState.insertUiEvent.toMhs())
@@ -70,5 +69,6 @@ fun Mahasiswa.toInsertUiEvent(): InsertUiEvent = InsertUiEvent(
     alamat = alamat,
     jenisKelamin = jenisKelamin,
     kelas = kelas,
-    angkatan = angkatan,
+    angkatan = angkatan
 )
+

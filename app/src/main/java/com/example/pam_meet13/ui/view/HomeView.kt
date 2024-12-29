@@ -48,7 +48,7 @@ import com.example.pam_meet13.ui.viewmodel.PenyediaViewModel
 // tombol tambah data, opsi detail, hapus, dan fungsi refresh
 
 // Menambahkan DestinasiHome sebagai navigasi untuk layar Home
-object DestinasiHome : DestinasiNavigasi{
+object DestinasiHome : DestinasiNavigasi {
     override val route = "home"
     override val titleRes = "Home Mhs"
 }
@@ -58,13 +58,13 @@ object DestinasiHome : DestinasiNavigasi{
 @Composable
 fun HomeScreen(
     navigateToItemEntry: () -> Unit,
-    modifier: Modifier = Modifier,
+    modifier:
+    Modifier = Modifier,
     onDetailClick: (String) -> Unit = {},
-    viewModel: HomeViewModel = viewModel(factory = PenyediaViewModel.Factory)
+    viewModel: HomeViewModel = viewModel(factory = PenyediaViewModel.Factory),
 ){
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
-
-    Scaffold (
+    Scaffold(
         modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
             CustomeTopAppBar(
@@ -80,27 +80,25 @@ fun HomeScreen(
             FloatingActionButton(
                 onClick = navigateToItemEntry,
                 shape = MaterialTheme.shapes.medium,
-                modifier = Modifier.padding(18.dp)
+                modifier = Modifier.
+                padding(18.
+                dp)
             ) {
-                Icon(
-                    imageVector = Icons.Default.Add,
-                    contentDescription = "Add Kontak"
-                )
+                Icon(imageVector = Icons.Default.Add, contentDescription = "Add Mahasiswa")
             }
         },
     ) { innerPadding ->
         HomeStatus(
             homeUiState = viewModel.mhsUIState,
-            retryAction = { viewModel.getMhs()},
-            modifier = Modifier.padding(innerPadding),
-            onDetailClick = onDetailClick,
-            onDeleteClick = {
-                viewModel.deleteMhs(it.nim)
+            retryAction = { viewModel.getMhs() }, modifier = Modifier.padding(innerPadding),
+            onDetailClick = onDetailClick, onDeleteClick = {
+                viewModel.deleteMhs(it.nim )
                 viewModel.getMhs()
             }
         )
     }
 }
+
 
 //  untuk menangani berbagai status UI seperti loading, sukses, dan error
 @Composable
@@ -108,23 +106,24 @@ fun HomeStatus(
     homeUiState: HomeUiState,
     retryAction: () -> Unit,
     modifier: Modifier = Modifier,
-    onDeleteClick: (Mahasiswa)-> Unit = {},
+    onDeleteClick: (Mahasiswa) -> Unit = {},
     onDetailClick: (String) -> Unit
-){
-    when (homeUiState){
-        is HomeUiState.Loading -> OnLoading(modifier = modifier.fillMaxSize())
-
+) {
+    when (
+        homeUiState) {
+        is HomeUiState.Loading -> OnLoading(modifier =
+        modifier.fillMaxSize())
         is HomeUiState.Success ->
-            if (homeUiState.Mahasiswa.isEmpty()){
-                return Box(
-                    modifier = Modifier.fillMaxSize(),
-                    contentAlignment = Alignment.Center
-                ){
-                    Text(text = "Tidak Ada Data Mahasiswa")
+            if (
+                homeUiState.mahasiswa.isEmpty()){
+                return Box (modifier = modifier.
+                            fillMaxSize(),
+                    contentAlignment = Alignment.Center) {
+                    Text(text = "Tidak ada data Mahasiswa" )
                 }
-            } else {
+            }else {
                 MhsLayout(
-                    mahasiswa = homeUiState.Mahasiswa,
+                    mahasiswa = homeUiState.mahasiswa,
                     modifier = modifier.fillMaxWidth(),
                     onDetailClick = {
                         onDetailClick(it.nim)
@@ -134,7 +133,10 @@ fun HomeStatus(
                     }
                 )
             }
-        is HomeUiState.Error -> OnError(retryAction, modifier = modifier.fillMaxSize())
+        is HomeUiState.Error -> OnError(
+            retryAction,
+            modifier = modifier.fillMaxSize()
+        )
     }
 }
 
@@ -183,14 +185,13 @@ fun MhsLayout(
     modifier: Modifier = Modifier,
     onDetailClick: (Mahasiswa) -> Unit,
     onDeleteClick: (Mahasiswa) -> Unit = {}
-){
-    LazyColumn (
+) {
+    LazyColumn(
         modifier = modifier,
         contentPadding = PaddingValues(16.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp)
-    ){
-        items(mahasiswa){
-            mahasiswa ->
+    ) {
+        items(mahasiswa) { mahasiswa ->
             MhsCard(
                 mahasiswa = mahasiswa,
                 modifier = Modifier

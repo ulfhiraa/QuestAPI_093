@@ -15,17 +15,18 @@ import com.example.pam_meet13.ui.navigasi.PengelolaHalaman
 // untuk menampilkan struktur dasar aplikasi dengan scrollable layout dan menampilkan PengelolaHalaman
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MahasiswaApp(){
+fun MahasiswaApp() {
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
-    Scaffold (
-        modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
+    Scaffold(
+        modifier = Modifier.
+        nestedScroll(scrollBehavior.nestedScrollConnection),
         // topBar = { TopAppBar(scrollBehavior = scrollBehavior) }
-    ){
-        Surface(// untuk memastikan tata letak penuh aplikasi
+    ) {
+        Surface(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(it)
-        ){
+        ) {
             PengelolaHalaman()
         }
     }

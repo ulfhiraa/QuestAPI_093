@@ -44,13 +44,15 @@ object DestinasiEntry : DestinasiNavigasi{
 fun EntryMhsScreen(
     navigateBack: () -> Unit,
     modifier: Modifier = Modifier,
+    nimToUpdate: String? = null,
     viewModel: InsertViewModel = viewModel(factory = PenyediaViewModel.Factory)
 ){
     val coroutineScope = rememberCoroutineScope()
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
 
-    Scaffold (
-        modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
+    Scaffold(
+        modifier = modifier.
+        nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
             CustomeTopAppBar(
                 title = DestinasiEntry.titleRes,
@@ -59,12 +61,13 @@ fun EntryMhsScreen(
                 navigateUp = navigateBack
             )
         }
-    ){  innerPadding ->
+    ){ innerPadding ->
         EntryBody(
             insertUiState = viewModel.uiState,
-            onMahasiswaValueChange = viewModel::updateInsertMhsState,
+            onSiswaValueChange = viewModel::updateInsertMhsState,
             onSaveClick = {
-                coroutineScope.launch {
+                coroutineScope.
+                launch {
                     viewModel.insertMhs()
                     navigateBack()
                 }
@@ -81,23 +84,27 @@ fun EntryMhsScreen(
 @Composable
 fun EntryBody(
     insertUiState: InsertUiState,
-    onMahasiswaValueChange: (InsertUiEvent) -> Unit,
+    onSiswaValueChange: (InsertUiEvent) -> Unit,
     onSaveClick: () -> Unit,
-    modifier: Modifier = Modifier
-){
-    Column (
+    modifier:
+    Modifier = Modifier
+) {
+    Column(
         verticalArrangement = Arrangement.spacedBy(18.dp),
-        modifier = modifier.padding(12.dp)
-    ){
+        modifier = modifier
+            .padding(12.dp)
+    ) {
         FormInput(
             insertUiEvent = insertUiState.insertUiEvent,
-            onValueChange = onMahasiswaValueChange,
-            modifier = Modifier.fillMaxWidth()
+            onValueChange = onSiswaValueChange,
+            modifier = Modifier
+                .fillMaxWidth()
         )
         Button(
             onClick = onSaveClick,
             shape = MaterialTheme.shapes.small,
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier
+                .fillMaxWidth()
         ) {
             Text(text = "Simpan")
         }

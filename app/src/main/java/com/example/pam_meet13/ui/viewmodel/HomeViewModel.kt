@@ -16,13 +16,13 @@ import java.io.IOException
 
 // untuk merepresentasikan state aplikasi (Success, Error, Loading) dalam proses pengambilan data Mahasiswa.
 sealed class HomeUiState {
-    data class Success(val Mahasiswa: List<Mahasiswa>): HomeUiState()
+    data class Success(val mahasiswa: List<Mahasiswa>) : HomeUiState()
     object Error : HomeUiState()
     object Loading : HomeUiState()
 }
 
 // untuk mengelola state UI dan mengambil data Mahasiswa dari MahasiswaRepository
-class HomeViewModel (private val mhs: MahasiswaRepository): ViewModel(){
+class HomeViewModel(private val mhs: MahasiswaRepository) : ViewModel() {
     var mhsUIState: HomeUiState by mutableStateOf(HomeUiState.Loading)
         private set
 
@@ -31,19 +31,18 @@ class HomeViewModel (private val mhs: MahasiswaRepository): ViewModel(){
     }
 
     fun getMhs() {
-        viewModelScope.launch{
+        viewModelScope.launch {
             mhsUIState = HomeUiState.Loading
             mhsUIState = try {
                 HomeUiState.Success(mhs.getMahasiswa())
-            } catch (e:IOException) {
+            } catch (e: IOException) {
                 HomeUiState.Error
-            } catch (e:HttpException){
+            } catch (e: HttpException) {
                 HomeUiState.Error
             }
         }
     }
-
-    fun deleteMhs(nim: String){
+    fun deleteMhs(nim: String) {
         viewModelScope.launch {
             try {
                 mhs.deleteMahasiswa(nim)

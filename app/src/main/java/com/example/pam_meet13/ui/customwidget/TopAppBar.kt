@@ -22,27 +22,22 @@ fun CustomeTopAppBar(
     canNavigateBack: Boolean,
     modifier: Modifier = Modifier,
     scrollBehavior: TopAppBarScrollBehavior? = null,
-    navigateUp: ()-> Unit = {},
-    onRefresh: ()-> Unit = {},
+    navigateUp: () -> Unit = {},
+    onRefresh: () -> Unit = {},
 ){
     CenterAlignedTopAppBar(
-        title = { Text(title)},
+        title = { Text(title) },
         actions = {
-            Icon(imageVector = Icons.Default.Refresh,
-                contentDescription = "",
-                modifier = Modifier.clickable
-                {
-                    onRefresh()
-                }
-            )
+            Icon(imageVector = Icons.Default.Refresh, contentDescription = "", modifier.clickable {
+                onRefresh()
+            })
         },
+
         modifier = modifier,
         scrollBehavior = scrollBehavior, navigationIcon = {
             if (canNavigateBack) {
                 IconButton(onClick = navigateUp) {
-                    Icon(imageVector = Icons.Filled.ArrowBack,
-                        contentDescription = null
-                    )
+                    Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = null)
                 }
             }
         }
