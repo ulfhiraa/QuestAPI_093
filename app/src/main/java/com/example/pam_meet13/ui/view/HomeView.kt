@@ -138,8 +138,7 @@ fun HomeStatus(
     }
 }
 
-// Home screen menampilkan pesan loading
-
+// untuk menampilkan pesan loading
 @Composable
 fun OnLoading( modifier: Modifier = Modifier){
     Image(
