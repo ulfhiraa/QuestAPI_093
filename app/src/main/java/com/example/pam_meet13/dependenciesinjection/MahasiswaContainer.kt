@@ -16,7 +16,7 @@ interface AppContainer {
 // untuk mengimplementasikan AppContainer dengan konfigurasi Retrofit dan MahasiswaRepository.
 class MahasiswaContainer: AppContainer {
 
-    private val baseUrl = "http://10.0.2.2/umyTI/"
+    private val baseUrl = "http://10.0.2.2:8000/umyTI/"
 
     private val json = Json{ ignoreUnknownKeys = true }
 
