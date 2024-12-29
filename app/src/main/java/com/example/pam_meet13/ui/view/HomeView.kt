@@ -53,6 +53,7 @@ object DestinasiHome : DestinasiNavigasi{
     override val titleRes = "Home Mhs"
 }
 
+// untuk menampilkan daftar mahasiswa, tombol tambah data, dan fungsi refresh.
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
