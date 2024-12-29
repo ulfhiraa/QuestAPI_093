@@ -16,11 +16,11 @@ interface AppContainer{
 // untuk mengimplementasikan AppContainer dengan konfigurasi Retrofit dan MahasiswaRepository.
 class MahasiswaContainer : AppContainer{
 
-    private val baseURL = "http://10.0.2.2:8000/umyTI" // localhost diganti ip kalo di run di hp
+    private val baseUrl = "http://10.0.2.2:8000/umyTI/" // localhost diganti ip kalo di run di hp
     private val json = Json { ignoreUnknownKeys = true }
     private val retrofit: Retrofit = Retrofit.Builder()
         .addConverterFactory(json.asConverterFactory("application/json".toMediaType()))
-        .baseUrl(baseURL).build()
+        .baseUrl(baseUrl).build()
 
     private val mahasiswaService: MahasiswaService by lazy {
         retrofit.create(MahasiswaService::class.java)
