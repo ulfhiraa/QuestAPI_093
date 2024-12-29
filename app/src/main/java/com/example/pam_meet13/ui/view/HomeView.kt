@@ -44,6 +44,10 @@ import com.example.pam_meet13.ui.viewmodel.HomeUiState
 import com.example.pam_meet13.ui.viewmodel.HomeViewModel
 import com.example.pam_meet13.ui.viewmodel.PenyediaViewModel
 
+// untuk menampilkan daftar mahasiswa dengan berbagai status UI,
+// tombol tambah data, opsi detail, hapus, dan fungsi refresh
+
+// Menambahkan DestinasiHome sebagai navigasi untuk layar Home
 object DestinasiHome : DestinasiNavigasi{
     override val route = "home"
     override val titleRes = "Home Mhs"
