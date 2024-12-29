@@ -102,6 +102,7 @@ fun HomeScreen(
     }
 }
 
+//  untuk menangani berbagai status UI seperti loading, sukses, dan error
 @Composable
 fun HomeStatus(
     homeUiState: HomeUiState,
