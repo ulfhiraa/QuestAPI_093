@@ -142,7 +142,7 @@ fun HomeStatus(
 @Composable
 fun OnLoading( modifier: Modifier = Modifier){
     Image(
-        modifier = modifier.size(200.dp),
+        modifier = modifier.size(100.dp),
         painter = painterResource(R.drawable.loading),
         contentDescription = stringResource(R.string.loading)
     )
@@ -160,9 +160,10 @@ fun OnError(
         horizontalAlignment = Alignment.CenterHorizontally
     ){
         Image(
-            painter = painterResource
-                (id = R.drawable.error),
-            contentDescription = ""
+            painter = painterResource(id = R.drawable.error),
+            contentDescription = "Error Image",
+            modifier = Modifier
+                .size(100.dp) // Atur ukuran gambar menjadi 100x100 dp
         )
         Text(
             text = stringResource(R.string.loading_failed),
