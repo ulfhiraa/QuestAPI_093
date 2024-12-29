@@ -203,6 +203,7 @@ fun MhsLayout(
     }
 }
 
+// untuk menampilkan detail kartu informasi mahasiswa dengan opsi hapus
 @Composable
 fun MhsCard(
     mahasiswa: Mahasiswa,
