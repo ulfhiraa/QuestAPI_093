@@ -148,8 +148,7 @@ fun OnLoading( modifier: Modifier = Modifier){
     )
 }
 
-// home screen menampilkan pesan error dengan re-attempt button
-
+// untuk menampilkan pesan error dengan re-attempt button (coba lagi)
 @Composable
 fun OnError(
     retryAction: () -> Unit,
