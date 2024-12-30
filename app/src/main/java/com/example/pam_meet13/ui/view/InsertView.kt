@@ -35,7 +35,7 @@ import kotlinx.coroutines.launch
 // untuk mendefinisikan route dan titleRes untuk layar input data Mahasiswa.
 object DestinasiEntry : DestinasiNavigasi{
     override val route = "item_entry"
-    override val titleRes = "Entry Mhs"
+    override val titleRes = "Tambah Mahasiswa"
 }
 
 // untuk menampilkan layar input data Mahasiswa dengan tombol simpan dan navigasi kembali
@@ -64,7 +64,7 @@ fun EntryMhsScreen(
     ){ innerPadding ->
         EntryBody(
             insertUiState = viewModel.uiState,
-            onSiswaValueChange = viewModel::updateInsertMhsState,
+            onMhsValueChange = viewModel::updateInsertMhsState,
             onSaveClick = {
                 coroutineScope.
                 launch {
@@ -84,7 +84,7 @@ fun EntryMhsScreen(
 @Composable
 fun EntryBody(
     insertUiState: InsertUiState,
-    onSiswaValueChange: (InsertUiEvent) -> Unit,
+    onMhsValueChange: (InsertUiEvent) -> Unit,
     onSaveClick: () -> Unit,
     modifier:
     Modifier = Modifier
@@ -96,7 +96,7 @@ fun EntryBody(
     ) {
         FormInput(
             insertUiEvent = insertUiState.insertUiEvent,
-            onValueChange = onSiswaValueChange,
+            onValueChange = onMhsValueChange,
             modifier = Modifier
                 .fillMaxWidth()
         )
