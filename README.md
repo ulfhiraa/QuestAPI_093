@@ -12,4 +12,4 @@
 
 | **Setelah Hapus** | | |
 |:---:|:---:|:---:|
-| <img src="https://github.com/user-attachments/assets/edea4179-b306-4bb5-b41c-5fac9a42bff0" alt="j  setelahHps" width="200"/> | | |
+| <img src="https://github.com/user-attachments/assets/edea4179-b306-4bb5-b41c-5fac9a42bff0" alt="j  setelahHps" width="300"/> | | |
