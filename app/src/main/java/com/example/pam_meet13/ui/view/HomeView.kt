@@ -50,7 +50,7 @@ import com.example.pam_meet13.ui.viewmodel.PenyediaViewModel
 // Menambahkan DestinasiHome sebagai navigasi untuk layar Home
 object DestinasiHome : DestinasiNavigasi {
     override val route = "home"
-    override val titleRes = "Home Mhs"
+    override val titleRes = "Home Mahasiswa"
 }
 
 // untuk menampilkan daftar mahasiswa, tombol tambah data, dan fungsi refresh.
@@ -89,14 +89,14 @@ fun HomeScreen(
         HomeStatus(
             homeUiState = viewModel.mhsUIState,
             retryAction = { viewModel.getMhs() }, modifier = Modifier.padding(innerPadding),
-            onDetailClick = onDetailClick, onDeleteClick = {
+            onDetailClick = onDetailClick,
+            onDeleteClick = {
                 viewModel.deleteMhs(it.nim )
                 viewModel.getMhs()
             }
         )
     }
 }
-
 
 //  untuk menangani berbagai status UI seperti loading, sukses, dan error
 @Composable
@@ -109,13 +109,12 @@ fun HomeStatus(
 ) {
     when (
         homeUiState) {
-        is HomeUiState.Loading -> OnLoading(modifier =
-        modifier.fillMaxSize())
+        is HomeUiState.Loading -> OnLoading(modifier = modifier.fillMaxSize())
         is HomeUiState.Success ->
             if (
                 homeUiState.mahasiswa.isEmpty()){
                 return Box (modifier = modifier.
-                            fillMaxSize(),
+                fillMaxSize(),
                     contentAlignment = Alignment.Center) {
                     Text(text = "Tidak ada data Mahasiswa" )
                 }
@@ -142,7 +141,7 @@ fun HomeStatus(
 @Composable
 fun OnLoading( modifier: Modifier = Modifier){
     Image(
-        modifier = modifier.size(100.dp),
+        modifier = modifier.size(50.dp),
         painter = painterResource(R.drawable.loading),
         contentDescription = stringResource(R.string.loading)
     )
